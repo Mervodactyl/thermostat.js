@@ -1,6 +1,9 @@
-function Player() {
-}
-Player.prototype.play = function(song) {
-  this.currentlyPlayingSong = song;
-  this.isPlaying = true;
+var Thermostat = function() {};
+
+Thermostat.prototype.defaultTemp = function(number) {
+  return true;
+};
+
+Thermostat.prototype.increaseTemp = function(number) {
+  return ;
 };

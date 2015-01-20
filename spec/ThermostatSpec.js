@@ -1,26 +1,16 @@
-describe("Player", function() {
-  var player;
-  var song;
+describe('Thermostat', function() {
+  var thermostat;
 
-  beforeEach(function() {
-    player = new Player();
-    song = new Song();
-  });
-
-  it("should be able to play a Song", function() {
-    player.play(song);
-    expect(player.currentlyPlayingSong).toEqual(song);
-  });
-
+beforeEach(function() {
+  thermostat = new Thermostat();
 });
 
+  it('Should start at 20 degrees', function() {
+    expect(thermostat.defaultTemp(20)).toBe(true);
+  });
 
-
-describe("Thermostat", function() {
-  var = thermostat;
-
-  beforeEach(function() {
-    thermostat = new Thermostat();
+  it('Can increase Temperature using the UP button', function() {
+    expect(thermostat.increaseTemp(21)).toBe(true);
   });
 
 
