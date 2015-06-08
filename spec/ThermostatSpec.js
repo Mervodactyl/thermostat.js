@@ -45,6 +45,30 @@ describe("Thermo", function() {
     });
   });
 
+  describe("changes colour based on energy usage, ", function() {
+    it("it turns 'GREEN' if below 18 degrees", function() {
+      thermo.decreaseTemperature(3);
+      expect(thermo.currentTemperature).toEqual(17);
+      thermo.applyColourRating();
+      expect(thermo.energyUsageIndicator).toEqual('green');
+    });
+
+    it("it turns 'YELLOW' if below 25 degrees", function() {
+      thermo.increaseTemperature(4);
+      expect(thermo.currentTemperature).toEqual(24);
+      thermo.applyColourRating();
+      expect(thermo.energyUsageIndicator).toEqual('yellow');
+    });
+
+    it("it turns 'RED' if thermostat is 25 degrees or above", function() {
+      thermo.togglePowerSavingState();
+      thermo.increaseTemperature(5);
+      expect(thermo.currentTemperature).toEqual(25);
+      thermo.applyColourRating();
+      expect(thermo.energyUsageIndicator).toEqual('red');
+    });
+  });
+
   describe("will reset to default properties ", function() {
     it("once the 'RESET' button is pressed", function() {
       thermo.increaseTemperature(5);

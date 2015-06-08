@@ -31,6 +31,16 @@ Thermo.prototype.togglePowerSavingState = function() {
   }
 };
 
+Thermo.prototype.applyColourRating = function() {
+  if (this.currentTemperature < 18) {
+    this.energyUsageIndicator = 'green';
+  } else if (this.currentTemperature < 25) {
+    this.energyUsageIndicator = 'yellow';
+  } else {
+    this.energyUsageIndicator = 'red';
+  }
+};
+
 Thermo.prototype.resetThermostat = function() {
   this.currentTemperature = 20;
 };
