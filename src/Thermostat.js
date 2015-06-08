@@ -20,3 +20,13 @@ Thermo.prototype.increaseTemperature = function(degreesToChangeBy) {
     this.currentTemperature += degreesToChangeBy;
   }
 };
+
+Thermo.prototype.togglePowerSavingState = function() {
+  if (this.powerSavingState === true) {
+    this.powerSavingState = false;
+    this.maximumTemperature = 32;
+  } else {
+    this.powerSavingState = true;
+    this.maximumTemperature = this.maximumTemperature;
+  }
+};

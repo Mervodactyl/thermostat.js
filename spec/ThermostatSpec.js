@@ -26,5 +26,26 @@ describe("Thermo", function() {
     });
   });
 
+  describe("can alter the temperature ", function() {
+    it("by pressing the 'UP' button", function() {
+      thermo.increaseTemperature(2);
+      expect(thermo.currentTemperature).toEqual(22);
+    });
+
+    it("by pressing the 'DOWN' button", function() {
+      thermo.decreaseTemperature(2);
+      expect(thermo.currentTemperature).toEqual(18);
+    });
+
+    it("by turning PSM off, the maximum temperature can now reach 32 degrees", function() {
+      thermo.togglePowerSavingState();
+      expect(thermo.powerSavingState).toBe(false);
+      thermo.increaseTemperature(14);
+      expect(thermo.currentTemperature).toEqual(32);
+    });
+  });
+
+
+
 
 });
