@@ -30,3 +30,7 @@ Thermo.prototype.togglePowerSavingState = function() {
     this.maximumTemperature = this.maximumTemperature;
   }
 };
+
+Thermo.prototype.resetThermostat = function() {
+  this.currentTemperature = 20;
+};

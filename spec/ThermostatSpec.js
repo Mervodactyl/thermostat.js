@@ -45,6 +45,15 @@ describe("Thermo", function() {
     });
   });
 
+  describe("will reset to default properties ", function() {
+    it("once the 'RESET' button is pressed", function() {
+      thermo.increaseTemperature(5);
+      expect(thermo.currentTemperature).toEqual(25);
+      thermo.resetThermostat();
+      expect(thermo.currentTemperature).toEqual(20);
+    });
+  });
+
 
 
 
