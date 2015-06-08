@@ -50,14 +50,14 @@ describe("Thermo", function() {
       thermo.decreaseTemperature(3);
       expect(thermo.currentTemperature).toEqual(17);
       thermo.applyColourRating();
-      expect(thermo.energyUsageIndicator).toEqual('green');
+      expect(thermo.energyUsageIndicator).toEqual('low-usage');
     });
 
     it("it turns 'YELLOW' if below 25 degrees", function() {
       thermo.increaseTemperature(4);
       expect(thermo.currentTemperature).toEqual(24);
       thermo.applyColourRating();
-      expect(thermo.energyUsageIndicator).toEqual('yellow');
+      expect(thermo.energyUsageIndicator).toEqual('medium-usage');
     });
 
     it("it turns 'RED' if thermostat is 25 degrees or above", function() {
@@ -65,7 +65,7 @@ describe("Thermo", function() {
       thermo.increaseTemperature(5);
       expect(thermo.currentTemperature).toEqual(25);
       thermo.applyColourRating();
-      expect(thermo.energyUsageIndicator).toEqual('red');
+      expect(thermo.energyUsageIndicator).toEqual('high-usage');
     });
   });
 
