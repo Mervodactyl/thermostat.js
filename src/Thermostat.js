@@ -1,9 +1,13 @@
-var Thermostat = function() {};
-
-Thermostat.prototype.defaultTemp = function(number) {
-  return true;
+var Thermo = function() {
+  this.currentTemperature = 20;
+  this.minimumTemperature = 10;
+  this.powerSavingState = true;
 };
 
-Thermostat.prototype.increaseTemp = function(number) {
-  return ;
+Thermo.prototype.decreaseTemperature = function(degreesToChangeBy) {
+  if (this.currentTemperature - degreesToChangeBy < this.minimumTemperature) {
+    this.currentTemperature = this.minimumTemperature;
+  } else {
+    this.currentTemperature -= degreesToChangeBy;
+  }
 };
